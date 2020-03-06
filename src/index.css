@@ -1,0 +1,18 @@
+:root {
+  --primary-hover:#8fb96f;
+  --primary: #88B06A;
+  --secondary-hover: #a5a5a5;
+  --secondary: #949494;
+  --alert: #e06571;
+  --success-hover: #28a345;
+  --success: #218839;
+  --info-hover: #18b4cc;
+  --info: #148a9c;
+  --warning-hover: #f5a543;
+  --warning: #df9234;
+  --error-hover: #d33f3f;
+  --error: #b63030;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+body.sb-show-main { background-color: transparent; }
