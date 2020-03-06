@@ -1,0 +1,52 @@
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.btn-icon:disabled {
+  opacity: .65;
+}
+
+.btn-icon-primary, .btn-icon-primary:disabled {
+  background-color: var(--primary);
+}
+
+.btn-icon-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-icon-secondary, .btn-icon-secondary:disabled {
+  background-color: var(--secondary);
+}
+
+.btn-icon-secondary:hover {
+  background-color: var(--secondary-hover);
+}
+
+.btn-icon-delete, .btn-icon-delete:disabled {
+  background-color: var(--error);
+}
+
+.btn-icon-delete:hover {
+  background-color: var(--error-hover);
+}
+
+.btn-icon-confirm, .btn-icon-confirm:disabled {
+  background-color: var(--success);
+}
+
+.btn-icon-confirm:hover {
+  background-color: var(--success-hover);
+}
+
+.btn-icon-info, .btn-icon-info:disabled {
+  background-color: var(--info);
+}
+
+.btn-icon-info:hover {
+  background-color: var(--info-hover);
+}

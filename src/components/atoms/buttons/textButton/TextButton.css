@@ -1,0 +1,75 @@
+.btn-primary, .btn-primary:disabled {
+  background-color: var(--primary);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active {
+  background-color: var(--primary-hover);
+  box-shadow: none;
+}
+
+.btn-secondary, .btn-secondary:disabled {
+  background-color: var(--secondary);
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: var(--secondary-hover);
+  box-shadow: none;
+}
+
+.btn-delete, .btn-delete:disabled {
+  background-color: var(--error);
+  color: white;
+}
+
+.btn-delete:hover, .btn-delete:focus, .btn-delete:not(:disabled):not(.disabled):active {
+  background-color: var(--error-hover);
+  box-shadow: none;
+  color: white;
+}
+
+.btn-confirm, .btn-confirm:disabled {
+  background-color: var(--success);
+  color: white;
+}
+
+.btn-confirm:hover, .btn-confirm:focus, .btn-confirm:not(:disabled):not(.disabled):active {
+  background-color: var(--success-hover);
+  box-shadow: none;
+  color: white;
+}
+
+.btn-info, .btn-info:disabled {
+  background-color: var(--info);
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info:not(:disabled):not(.disabled):active {
+  background-color: var(--info-hover);
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: 0;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.btn:disabled {
+  cursor: default;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
