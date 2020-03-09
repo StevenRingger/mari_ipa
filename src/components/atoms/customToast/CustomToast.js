@@ -1,6 +1,9 @@
 import React from 'react';
+import { Toast } from 'react-bootstrap';
 
-const Toast = ({ open, handleClose, message, ...props}) => {
+import './Toast.css';
+
+const CustomToast = ({ open, handleClose, message, ...props}) => {
   return (
     <Toast className="toast" {...props} onClose={() => this.handleClose()} show={open} autohide>
       <Toast.Header>{message || ''}</Toast.Header>
@@ -8,4 +11,4 @@ const Toast = ({ open, handleClose, message, ...props}) => {
   )
 }
 
-export default Toast;
+export default CustomToast;

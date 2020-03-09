@@ -1,0 +1,22 @@
+.scale-picker-radio div {
+  margin-bottom: 10px;
+}
+
+.scale-picker-radio input[type="radio"] {
+  position: fixed;
+  opacity: 0;
+  width: 0;
+}
+
+.scale-picker-radio label {
+  padding: 10px 20px;
+}
+
+.scale-picker-radio .radio-button:hover {
+  opacity: 0.9;
+}
+
+.scale-picker-radio input[type="radio"]:checked+label {
+  border: 1px solid rgb(128, 128, 128);
+  transform: scale(1.1);
+}

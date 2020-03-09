@@ -1,0 +1,10 @@
+.datepicker{
+  border: 1px solid #ced4da;
+  padding: 6px;
+  padding-left: 4%;
+  width: 100%
+}
+
+.react-datepicker-wrapper{
+  width: 100%
+}
