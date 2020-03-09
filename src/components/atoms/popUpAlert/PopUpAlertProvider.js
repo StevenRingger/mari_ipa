@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import PopUpAlertContext from './PopUpAlertContext';
-import Toast from '../toast/Toast';
+import CustomToast from '../customToast/CustomToast';
 
-class SnackProvider extends PureComponent {
+class PopUpAlertProvider extends PureComponent {
   state = {
     message: null,
     open: false,
@@ -44,16 +44,16 @@ class SnackProvider extends PureComponent {
         >
           {children}
         </PopUpAlertContext.Provider>
-        <Toast {...SnackbarProps} message={message} open={open} handleClose={this.handleClose}></Toast>
+        <CustomToast {...SnackbarProps} message={message} open={open} handleClose={this.handleClose} />
       </React.Fragment>
     )
   }
 }
 
-SnackProvider.propTypes = {
+PopUpAlertProvider.propTypes = {
   ButtonProps: PropTypes.object,
   children: PropTypes.node,
   SnackbarProps: PropTypes.object,
 }
 
-export default SnackProvider;
+export default PopUpAlertProvider;
