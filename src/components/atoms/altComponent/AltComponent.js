@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+
+import Section from '../section/Section';
 
 /**
  * Alternative component that can be displayed when another component breaks
@@ -6,10 +8,10 @@ import React, { Fragment } from 'react';
 
 const AltComponent = () => {
   return (
-    <Fragment style={{ textAlign: 'center' }}>
-      <h3>Oops!Teile der Website konnten nicht korrekt dargestellt werden</h3>
+    <Section style={{ textAlign: 'center' }}>
+      <h3>Oops! Teile der Website konnten nicht korrekt dargestellt werden</h3>
       <h4>Bitte versuchen Sie es später nocheinmal</h4>
-    </Fragment>
+    </Section>
   )
 }
 

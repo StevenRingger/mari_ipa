@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import TextButton from '../../atoms/buttons/textButton/TextButton';
+import './CustomModal.css';
 
 /**
  * Modal element with two buttons and a message

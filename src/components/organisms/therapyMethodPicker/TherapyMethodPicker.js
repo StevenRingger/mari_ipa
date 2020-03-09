@@ -15,7 +15,8 @@ import { getSectionsRecommendations } from '../../../services/SectionService';
  */
 
 const TherapyMethodPicker = ({ 
-  onSubmit,disabled,
+  onSubmit,
+  disabled,
   recommendations,
   therapy,
   collapsed,
@@ -26,11 +27,12 @@ const TherapyMethodPicker = ({
 }) => {
   const [methods, setMethods] = useState();
   useEffect(() => {
-    if (recommendations !== null) {
-      getSectionsRecommendations(recommendations).then(res => {
-        setMethods(res.data)
-      })
-    }
+      if (recommendations !== null) {
+        getSectionsRecommendations(recommendations).then(res => {
+          setMethods(res.data)
+        })
+      }
+    
   }, [recommendations])
 
   const therapyClicked = (therapy) => {
@@ -51,6 +53,7 @@ const TherapyMethodPicker = ({
       </TextButton>
         :
         <Section>
+          {console.log(methods)}
           <Formik
             initialValues={{
               name: '',

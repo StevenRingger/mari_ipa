@@ -10,10 +10,12 @@ import './TherapyMethod.css';
  */
 
 const TherapyMethod = ({ method, clickable, selected, therapy, ...props }) => {
+  console.log(method)
   return (
     <div
       className={(selected && selected.id === method.id) ? 'therapy-method selected' : 'therapy-method'}
       onClick={() => { therapy(method) }}
+      style={props.style}
     >
       <Row >
         <Col xs={10}>

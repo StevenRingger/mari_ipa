@@ -9,15 +9,15 @@ import './TextArea.css';
 /**
  * Customizable Input Field that can be used in forms.
  */
-const TextArea = ({ ...props }) => {
+const TextArea = ({ controlId, label, ...props }) => {
   const [field, meta] = useField(props);
   if (field.value === undefined) {
     field.value = "";
   }
   const errorText = meta.error && meta.touched ? meta.error : "";
   return (
-    <Form.Group controlId={props.controlId}>
-      <Form.Label>{props.label}</Form.Label>
+    <Form.Group controlId={controlId}>
+      <Form.Label>{label}</Form.Label>
       <Form.Control
         className="text-area"
         as="textarea"

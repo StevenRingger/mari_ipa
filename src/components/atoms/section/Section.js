@@ -8,7 +8,7 @@ import './Section.css';
  */
 const Section = ({ ...props }) => {
   return (
-    <section className={"section-" + props.variant}>
+    <section className={"section-" + props.variant} {...props}>
       {props.children}
     </section>
   )

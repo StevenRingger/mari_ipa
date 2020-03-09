@@ -2,18 +2,17 @@ import React from 'react'
 import { Form, FormControl } from 'react-bootstrap'
 import PropTypes from "prop-types";
 import { useField } from 'formik';
-
 import "./InputField.css"
 
 /**
  * Customizable Input Field that can be used in forms.
  */
-const InputField = ({ name, label, ...props }) => {
-  const [field, meta] = useField(props);
 
+const InputField = ({ ...props }) => {
+  const [field, meta] = useField(props);
   return (
-    <Form.Group name={name}>
-      <Form.Label>{label}</Form.Label>
+    <Form.Group name={props.name}>
+      <Form.Label>{props.label}</Form.Label>
       <Form.Control
         className={"cornered"}
         {...props}

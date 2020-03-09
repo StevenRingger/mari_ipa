@@ -1,14 +1,14 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 /**
- * A custom table with bootstrap styling
+ * A custom table with bootstrap styling<br>
  * The table get's generated automatically, only input needed is a header array and a body array
  */
 
-function CustomTable({ header, data, url, clickable, action, ...props }) {
+function CustomTable({ header, data, url, canClick, action, style, ...props }) {
   const settings = (id) => {
     return {
       onClick: () => {
@@ -19,12 +19,12 @@ function CustomTable({ header, data, url, clickable, action, ...props }) {
           action();
         }
       },
-      style: (clickable) ? { cursor: 'pointer' } : null
+      style: (canClick) ? { cursor: 'pointer' } : null
     }
   }
 
   return (
-    <Table striped bordered hover={clickable} size="sm">
+    <Table striped bordered hover={canClick} size="sm" style={style}>
       <thead>
         <tr>
           {header.map((h, index) => <th key={index}>{h}</th>)}
@@ -47,7 +47,7 @@ function CustomTable({ header, data, url, clickable, action, ...props }) {
 export default withRouter(CustomTable);
 
 CustomTable.defaultProps = {
-  clickable: false
+  canClick: false,
 };
 
 CustomTable.propTypes = {
@@ -66,9 +66,9 @@ CustomTable.propTypes = {
   /**
    * The clickable prop enables mous hover and pointer effect
    */
-  clickable: PropTypes.bool,
+  // canClick: PropTypes.string,
   /**
    * Define the onClick function
    */
-  action: PropTypes.func,
+  action: PropTypes.func
 };

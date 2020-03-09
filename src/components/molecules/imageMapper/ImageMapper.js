@@ -14,23 +14,23 @@ const ImageMapper = React.memo((props) => {
   const [element, setElement] = useState();
   const [section, setSection] = useState({ "name": "anamese", "areas": [] });
 
-  const getMap = () => {
-    getSections().then(res => {
-      setSection({
-        "name": "anamese",
-        "areas": res.data
-      })
-    })
-  }
-
   useEffect(() => {
     window.addEventListener('resize', debounce(function () {
       if (element) {
         setWidth(element.getBoundingClientRect().width)
       }
     }, 75));
-    getMap()
-  }, [element]);
+    if(props.coordMap){
+      setSection(props.coordMap)
+    }else{
+      getSections().then(res => {
+        setSection({
+          "name": "anamese",
+          "areas": res.data
+        })
+      })
+    }
+  }, [element,props.coordMap]);
 
   const styles = {
     area: {
