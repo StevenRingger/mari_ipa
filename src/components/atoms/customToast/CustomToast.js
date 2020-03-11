@@ -16,7 +16,7 @@ const CustomToast = ({
   position,
   ...props}) => {
   return (
-    <Toast className={(position)? variant+ ' toast-position '+position: variant } {...props} onClose={() => this.handleClose()} show={open} autohide>
+    <Toast className={(position)? variant+ ' toast-position '+position: variant } {...props} onClose={() => handleClose()} show={open} autohide>
       <Toast.Header>{message || ''}</Toast.Header>
     </Toast>
   )

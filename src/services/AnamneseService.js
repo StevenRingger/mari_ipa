@@ -1,24 +1,37 @@
 import api from '../config/Api';
 
-export const setAnamneseData = (id,data) => {
-  const promise = api.post(`/anamnese/`, data);
-  promise.then(res => {
-    console.log('setAnamneseData response',res.data)
-  })
-
-  return promise;
-};
-
-export const getAnamneseData = (id, ) => {
+export const setAnamneseData = (data) => {
   return new Promise((resolve, reject) => {
-    let promise = api.get(`/anamnese/${id}`);
-
+    let promise;
+    if(typeof data.id === 'undefined'){
+      promise = api.post(`/anamnese/`, data);
+    }else{
+      promise = api.post(`/anamnese/${data.id}`, data);
+    }
     promise.then(response => {
       resolve(response.data)
-    });
-
-    promise.catch(error => {
-      reject(error.response.status);
+    }).catch(error => {
+      reject(error);
     });
   })
 };
+
+export const getAnamneseData = (id) => {
+  return new Promise((resolve, reject) => {
+    api.get(`/anamnese/${id}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(error);
+    });
+  })
+};
+
+export const getAllAnamneseData = () => {
+  return new Promise((resolve, reject) => {
+    api.get(`/anamnese`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(error);
+    });
+  })
+}

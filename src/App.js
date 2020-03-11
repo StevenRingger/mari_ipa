@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ErrorBoundary from './components/atoms/errorBoundary/ErrorBoundary';
 import PopUpAlertProvider from './components/atoms/popUpAlert/PopUpAlertProvider';
 import AnamnesePage from './components/pages/anamnesePage/AnamnesePage';
+import CustomerPage from './components/pages/customerPage/CustomerPage';
 
 function App() {
   library.add(fab, fas);
@@ -19,7 +20,7 @@ function App() {
         <Router>
           <ErrorBoundary>
             <Route exact path="/anamnese/:id" component={AnamnesePage} />
-            {/* <Route exact path="/customer/:id" component={CustomerPage} /> */}
+            <Route exact path="/customer/:id" component={CustomerPage} />
           </ErrorBoundary>
         </Router>
       </PopUpAlertProvider>

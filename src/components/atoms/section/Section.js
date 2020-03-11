@@ -6,9 +6,9 @@ import './Section.css';
 /**
  * Page section with border
  */
-const Section = ({ ...props }) => {
+const Section = ({ variant, ...props }) => {
   return (
-    <section className={"section-" + props.variant} {...props}>
+    <section className={"section-" + variant} {...props}>
       {props.children}
     </section>
   )

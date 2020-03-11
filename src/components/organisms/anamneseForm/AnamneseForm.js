@@ -16,7 +16,6 @@ const AnamneseFrom = React.memo(({
   sectionData,
   setSec,
   update,
-  setFirstSave,
   disabled,
   ...props
 }) => {
@@ -25,7 +24,6 @@ const AnamneseFrom = React.memo(({
     subjective: Yup.string().max(1000, 'Zeichen Limit erreicht (max. 1000)'),
     objective: Yup.string().max(1000, 'Zeichen Limit erreicht (max. 1000)'),
     assessment: Yup.string().max(1000, 'Zeichen Limit erreicht (max. 1000)'),
-    severity: Yup.string().required('Es muss ein Datum gesetzt sein'),
   })
 
   return (
@@ -42,20 +40,20 @@ const AnamneseFrom = React.memo(({
         enableReinitialize={true}
         validationSchema={validationSchema}
         onSubmit={values => {
-          values['id'] = sectionData ? sectionData.id : '42';
+          values['id'] = sectionData.id ? sectionData.id : '42';
           setSec({ ...sectionData, ...values })
           update({ ...sectionData, ...values })
-          setFirstSave(false)
         }}
       >
         {({ handleSubmit,
           values,
+          initialValues,
           touched,
           errors }) => {
           return (
             <Form method="post" onSubmit={handleSubmit}>
               <ScalePicker
-                text={<p>Schmerzskala</p>}
+                text={'Schmerzskala'}
                 scope={["1", "2", "3", "4", "5"]}
                 name="severity"
                 colorLeft={[134, 62, 44]}
@@ -79,7 +77,7 @@ const AnamneseFrom = React.memo(({
                 name={"assessment"}
                 disabled={disabled}
               />
-              <TextButton type="submit" disabled={Object.entries(touched).length !== 0 ? false : true} >Zwischen Speichern</TextButton>
+              <TextButton type="submit" style={{width: '100%'}} disabled={(initialValues!==values)?false:true} align="center">Lokal Zwischen Speichern</TextButton>
             </Form>
           );
         }}
@@ -107,10 +105,6 @@ AnamneseFrom.propTypes = {
    * save or update data
    */
   update: PropTypes.func,
-  /**
-   * Function to return if its the first save
-   */
-  setFirstSave: PropTypes.func,
   /**
    * Disable the form
    */

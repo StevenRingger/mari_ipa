@@ -11,8 +11,8 @@ class PopUpAlertProvider extends PureComponent {
     horizontal: 'left'
   }
   
-  showMessage = (message, typeSnack, vertical, horizontal) => {
-    this.setState({ open: true, message, typeSnack, vertical, horizontal })
+  showMessage = (message, variant, position) => {
+    this.setState({ open: true, message, variant, position })
   }
 
   handleActionClick = () => {
@@ -27,6 +27,8 @@ class PopUpAlertProvider extends PureComponent {
   render () {
     const {
       message,
+      position,
+      variant,
       open
     } = this.state
 
@@ -44,7 +46,7 @@ class PopUpAlertProvider extends PureComponent {
         >
           {children}
         </PopUpAlertContext.Provider>
-        <CustomToast {...SnackbarProps} message={message} open={open} handleClose={this.handleClose} />
+        <CustomToast {...SnackbarProps} message={message} variant={variant} open={open} handleClose={this.handleClose} position={position} />
       </React.Fragment>
     )
   }

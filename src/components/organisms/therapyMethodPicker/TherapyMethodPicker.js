@@ -14,18 +14,18 @@ import { getSectionsRecommendations } from '../../../services/SectionService';
  * The component to select a therapymethod or create a new one
  */
 
-const TherapyMethodPicker = ({ 
+const TherapyMethodPicker = React.memo(({ 
   onSubmit,
   disabled,
   recommendations,
   therapy,
-  collapsed,
-  setCollapsed,
+  open,
+  setOpen,
   setSelectedMethod,
   selectedMethod,
   ...props 
 }) => {
-  const [methods, setMethods] = useState();
+  const [methods, setMethods] = useState([]);
   useEffect(() => {
       if (recommendations !== null) {
         getSectionsRecommendations(recommendations).then(res => {
@@ -36,24 +36,23 @@ const TherapyMethodPicker = ({
   }, [recommendations])
 
   const therapyClicked = (therapy) => {
-    props.setSelectedMethod(therapy)
+    setSelectedMethod(therapy)
   }
 
   return (
     <Fragment>
       {therapy ? <TherapyMethod method={therapy} clickable={false} /> : ''}
-      {(collapsed) ?
+      {(!open) ?
         <TextButton
           type="submit"
           style={{ width: 'calc(100% - 30px)', marginLeft: '15px' }}
-          onClick={() => { setCollapsed(false); }}
+          onClick={() => { setOpen(true); }}
           disabled={disabled}
         >
-          Therapiemethode Hinzufügen
+          {therapy?'Therapiemethode ändern':'Therapiemethode Hinzufügen'}
       </TextButton>
         :
         <Section>
-          {console.log(methods)}
           <Formik
             initialValues={{
               name: '',
@@ -76,7 +75,7 @@ const TherapyMethodPicker = ({
                   setSelectedMethod(null);
                 }}>
                   <InputField
-                    name="name"
+                    name={"name"}
                     label={"Title"}
                   />
                   <TextArea
@@ -103,7 +102,7 @@ const TherapyMethodPicker = ({
       }
     </Fragment>
   )
-}
+})
 
 export default TherapyMethodPicker;
 

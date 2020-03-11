@@ -5,7 +5,10 @@ import PropTypes from "prop-types";
  * Displays element with the successrate and a colored background depending on how high it is.
  */
 
-const SuccessRateDisp = ({ successRate, ...props }) => {
+const SuccessRateDisp = ({ 
+  successRate, 
+  ...props 
+}) => {
   const style = {
     general: {
       width: '50px',

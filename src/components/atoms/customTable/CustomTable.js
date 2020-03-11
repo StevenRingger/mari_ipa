@@ -3,12 +3,23 @@ import { Table } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import './CustomTable.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 /**
  * A custom table with bootstrap styling<br>
  * The table get's generated automatically, only input needed is a header array and a body array
  */
 
-function CustomTable({ header, data, url, canClick, action, style, ...props }) {
+function CustomTable({ 
+  header, 
+  data, 
+  url, 
+  canClick, 
+  action, 
+  style, 
+  ...props 
+}) {
   const settings = (id) => {
     return {
       onClick: () => {
@@ -35,11 +46,16 @@ function CustomTable({ header, data, url, canClick, action, style, ...props }) {
           data.map((row, index) => {
             return <tr key={index} {...settings(row.id)}>
               {Object.keys(row).map((key, index) => {
-                return <td key={index}>{row[key]}</td>
+                return <td key={index}>
+                  {row[key]}
+                  {Object.keys(row).length-1 === index && canClick ? 
+                    <div className="view-icon"><FontAwesomeIcon icon={["fas", "eye"]} size="sm" /></div>: ''}
+                  </td>
               })}
             </tr>
           })
         }
+        
       </tbody>
     </Table>
   )

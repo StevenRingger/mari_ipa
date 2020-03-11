@@ -15,15 +15,15 @@ const Radio = ({ ...props }) => {
   return (
     <Fragment>
       <Form.Check
-        {...field}
-        {...props}
-        inline
-        type="radio"
-        id={props.name + '-' + props.value}
+      {...field}
+      { ...props }
+      inline 
+      type = "radio" 
+      id = {props.name + '-' + props.value}
       />
       <FormControl.Feedback type="invalid">{errorText}</FormControl.Feedback>
     </Fragment>
-
+    
   )
 }
 export default Radio;

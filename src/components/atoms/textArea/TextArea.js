@@ -9,7 +9,11 @@ import './TextArea.css';
 /**
  * Customizable Input Field that can be used in forms.
  */
-const TextArea = ({ controlId, label, ...props }) => {
+const TextArea = ({ 
+  controlId, 
+  label, 
+  ...props 
+}) => {
   const [field, meta] = useField(props);
   if (field.value === undefined) {
     field.value = "";

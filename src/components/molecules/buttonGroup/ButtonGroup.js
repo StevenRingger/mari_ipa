@@ -8,7 +8,15 @@ import './ButtonGroup.css';
  * Two buttons that change depending if page is in edit mode or not
  */
 
-const ButtonGroup = ({ actionEdit, actionCancle, actionSave, editMode, ...props }) => {
+const ButtonGroup = ({
+  actionEdit,
+  actionCancle,
+  actionSave,
+  editMode,
+  saveDisabled,
+  submit,
+  ...props
+}) => {
   const buttonTypeOne = editMode === false ? "pen" : "times";
   return (
     <div className="btn-group">
@@ -30,11 +38,13 @@ const ButtonGroup = ({ actionEdit, actionCancle, actionSave, editMode, ...props 
             }}
           />
           <IconButton
+            type="submit"
             variant="primary"
             icon="save"
-            onClick={() => {
+            disabled={saveDisabled}
+            onClick={!submit ? () => {
               actionSave()
-            }}
+            } : null}
           />
         </Fragment>
       }
@@ -51,17 +61,21 @@ ButtonGroup.propTypes = {
   /**
    * function for the edit button
    */
-  actionEdit: PropTypes.func, 
+  actionEdit: PropTypes.func,
   /**
    * Function for the cancle button
    */
-  actionCancle: PropTypes.func, 
+  actionCancle: PropTypes.func,
   /**
    * Function for the save button
    */
-  actionSave: PropTypes.func, 
+  actionSave: PropTypes.func,
   /**
    * Prop to change editmode
    */
-  editMode: PropTypes.bool
+  editMode: PropTypes.bool,
+  /**
+   * Make save button of type submit, else it's type button
+   */
+  submit: PropTypes.bool
 };

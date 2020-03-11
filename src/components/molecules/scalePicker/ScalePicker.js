@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
+import { Form } from 'react-bootstrap';
 
 import './ScalePicker.css';
 import Radio from './../../atoms/radio/Radio';
@@ -8,13 +9,22 @@ import { interpolateColorsHsl } from "../../../services/ColorInterpolationServic
 /**
  * This is a component for a scale. It displays specific numbers as buttons that can be selected.
  */
-const ScalePicker = ({ text, scope, name, initialCheck, changeAction, color, colorLeft, colorRight, ...props }) => {
-
+const ScalePicker = ({ 
+  text, 
+  scope, 
+  name, 
+  initialCheck, 
+  changeAction, 
+  color, 
+  colorLeft, 
+  colorRight, 
+  ...props 
+}) => {
   const colors = (colorLeft && colorRight) ? interpolateColorsHsl(colorLeft, colorRight, scope.length) : interpolateColorsHsl(color, color, scope.length);
 
   return (
-    <Fragment>
-      {text}
+    <Form.Group>
+      <Form.Label>{text}</Form.Label>
       <div onChange={changeAction} className="scale-picker-radio">
         {scope.map((value, index) => (
           <Radio
@@ -30,7 +40,7 @@ const ScalePicker = ({ text, scope, name, initialCheck, changeAction, color, col
         ))}
         {(props.errorText !== '') ? <div style={{ width: '100%', marginTop: '.25rem', fontSize: '80%', color: '#dc3545' }}>{props.errorText}</div> : ''}
       </div>
-    </Fragment>
+    </Form.Group>
   )
 }
 export default ScalePicker;
@@ -43,7 +53,7 @@ ScalePicker.propTypes = {
   /**
    * Text that appears above the Scale-Picker
    */
-  text: PropTypes.element,
+  text: PropTypes.string,
   /**
    * Array of numbers from where to where the scale goes
    */

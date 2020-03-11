@@ -1,0 +1,8 @@
+td:last-child .view-icon{
+  float: right;
+  opacity: 0;
+  transition: 0.5s;
+}
+tr:hover .view-icon{
+  opacity: 1;
+}

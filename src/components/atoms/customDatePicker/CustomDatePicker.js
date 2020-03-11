@@ -10,7 +10,13 @@ import "./CustomDatePicker.css";
  * Custom datepicker with label
  */
 
-const CustomDatePicker = ({label, selected, onChange, dateFormat,...props}) => {
+const CustomDatePicker = ({
+  label, 
+  selected, 
+  onChange, 
+  dateFormat,
+  ...props
+}) => {
   return (
     <div>
       <Form.Label>{label}</Form.Label>

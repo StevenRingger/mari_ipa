@@ -10,7 +10,13 @@ import './IconButton.css';
  * If you want to add other React Bootstrap props of the Button you can just use them like you normaly do.
  *  You can find the possible props here: https://react-bootstrap.github.io/components/buttons/
  */
-const IconButton = ({ action, set, icon, align, ...props }) => {
+const IconButton = ({
+  action,
+  set,
+  icon,
+  align,
+  ...props
+}) => {
   return (
     <div className={'btn-container ' + align}>
       <Button
@@ -64,7 +70,7 @@ IconButton.propTypes = {
    */
   align: PropTypes.oneOf([
     "left",
-    "center", 
+    "center",
     "right"
   ])
 };

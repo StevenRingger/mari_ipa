@@ -10,7 +10,11 @@ import './TextButton.css';
  * If you want to add other React Bootstrap props of the Button you can just use them like you normaly do.
  * You can find the possible props here: https://react-bootstrap.github.io/components/buttons/
  */
-const TextButton = ({ action, align, ...props }) => {
+const TextButton = ({ 
+  action, 
+  align, 
+  ...props 
+}) => {
   return (
     <div className={'btn-container ' + align}>
       <Button

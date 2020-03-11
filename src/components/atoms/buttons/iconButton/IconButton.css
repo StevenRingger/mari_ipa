@@ -50,6 +50,7 @@
 .btn-icon-info:hover {
   background-color: var(--info-hover);
 }
+
 .btn-container {
   width: 100%;
   display: flex;
