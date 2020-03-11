@@ -5,11 +5,13 @@ import { debounce } from 'lodash';
 
 import { getSections } from '../../../services/SectionService';
 import './ImageMapper.css';
+import usePopUp from '../../atoms/popUpAlert/UsePopUp';
 
 /**
  * Displays a areas over an image. <br>
  */
 const ImageMapper = React.memo((props) => {
+  const popUp = usePopUp();
   const [width, setWidth] = useState();
   const [element, setElement] = useState();
   const [section, setSection] = useState({ "name": "anamese", "areas": [] });
@@ -20,17 +22,23 @@ const ImageMapper = React.memo((props) => {
         setWidth(element.getBoundingClientRect().width)
       }
     }, 75));
-    if(props.coordMap){
+    if (props.coordMap) {
       setSection(props.coordMap)
-    }else{
+    } else {
       getSections().then(res => {
         setSection({
           "name": "anamese",
-          "areas": res.data
+          "areas": res
         })
+      }).catch(e => {
+        popUp.showMessage(
+          'Daten konnten nicht geladen werden',
+          'ct-alert',
+          'top-right'
+        );
       })
     }
-  }, [element,props.coordMap]);
+  }, [element, props.coordMap, popUp]);
 
   const styles = {
     area: {

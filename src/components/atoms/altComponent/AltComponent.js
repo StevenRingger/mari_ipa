@@ -9,7 +9,7 @@ import Section from '../section/Section';
 const AltComponent = () => {
   return (
     <Section style={{ textAlign: 'center' }}>
-      <h3>Oops! Teile der Website konnten nicht korrekt dargestellt werden</h3>
+      <h3>Ups! Teile der Website konnten nicht korrekt dargestellt werden</h3>
       <h4>Bitte versuchen Sie es später nocheinmal</h4>
     </Section>
   )

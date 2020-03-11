@@ -18,6 +18,7 @@ import ButtonGroup from '../../molecules/buttonGroup/ButtonGroup';
 import ErrorBoundary from '../../atoms/errorBoundary/ErrorBoundary';
 import usePopUp from '../../atoms/popUpAlert/UsePopUp';
 import CustomDatePicker from '../../atoms/customDatePicker/CustomDatePicker';
+import CustomModal from '../../molecules/customModal/CustomModal';
 
 const AnamnesePage = React.memo((props) => {
   const popUp = usePopUp();
@@ -28,6 +29,7 @@ const AnamnesePage = React.memo((props) => {
   const [open, setOpen] = useState(false);
   const [changesMade, setChangesMade] = useState(false);
   const [sec, setSec] = useState(null);
+  const [modal, setModal] = useState(false)
 
   useEffect(() => {
     if (id !== 'new') {
@@ -90,10 +92,21 @@ const AnamnesePage = React.memo((props) => {
       setOpen(false)
     } else {
       setTherapies(values).then(res => {
-        setSec(sec, sec["therapy"] = res.data);
+        setSec(sec, sec["therapy"] = res);
+        popUp.showMessage(
+          'Neue Therapymethode wurde gespeichert',
+          'ct-default',
+          'top-right'
+        );
         updateData(sec)
         setOpen(false)
-      });
+      }).catch(e => {
+        popUp.showMessage(
+          'Neue Therapymethode konnte nicht gespeichert werden',
+          'ct-alert',
+          'top-right'
+        );
+      })
     }
   };
   const validationSchema = Yup.object().shape({
@@ -107,6 +120,7 @@ const AnamnesePage = React.memo((props) => {
         'ct-default',
         'top-right'
       );
+      setChangesMade(false)
     }).catch(e => {
       popUp.showMessage(
         'Beim Speichern ist ein Fehler aufgetreten',
@@ -127,7 +141,7 @@ const AnamnesePage = React.memo((props) => {
         enableReinitialize={true}
         validationSchema={validationSchema}
         onSubmit={values => {
-          handleAnamneseSave({...data, ...values});
+          handleAnamneseSave({ ...data, ...values });
         }}>
         {({ handleSubmit,
           values,
@@ -148,22 +162,31 @@ const AnamnesePage = React.memo((props) => {
                   </Col>
                   <Col>
                     Klient <br></br>
-                    <div style={{marginTop: '15px'}}>
+                    <div style={{ marginTop: '15px' }}>
                       {(typeof data.user !== 'undefined') ? data.user.firstname + ' ' + data.user.lastname : ''}
                     </div>
                   </Col>
                 </Row>
               </Section>
-
+              <CustomModal
+                title="this is title"
+                message="this is message"
+                show={modal}
+                onHide={()=>setModal(false)}
+                primaryButtonAction={()=>setModal(false)}
+                primaryButtonText="Bleiben"
+                secondaryButtonAction={ () => {props.history.push('/customer/' + data.user.id)}}
+                secondaryButtonText="Verlassen"
+              />
               <ButtonGroup
                 editMode={true}
-                actionCancle={() => { props.history.push('/customers/' + data.user.id) }}
-                // actionSave={ () => {
-                // console.log(data); 
-                // setAnamneseData(id, data);
-                // setChangesMade(false)
-                // } 
-                // }
+                actionCancle={() => {
+                  if (changesMade) {
+                    setModal(true);
+                  } else {
+                    props.history.push('/customer/' + data.user.id);
+                  }
+                }}
                 submit
                 saveDisabled={!changesMade}
               />
@@ -176,8 +199,14 @@ const AnamnesePage = React.memo((props) => {
           <Col lg={{ order: 1, span: 6 }} md={{ order: 12, span: 12 }} xs={{ order: 12, span: 12 }}>
             <Section>
               <Row>
-                <Col lg={{ order: 1, span: 8 }} xs={{ order: 12, span: 12 }}><div className="placeholder">{sec ? <h1>{sec.section.name}</h1> : ''}</div></Col>
-                <Col lg={{ order: 12, span: 4 }} xs={{ order: 1, span: 12 }}>{changesMade ? <div className="unsaved-changes">(ungespeicherte Änderungen)</div> : ''}</Col>
+                <Col lg={{ order: 1, span: 8 }} xs={{ order: 12, span: 12 }}>
+                  <div className="placeholder">
+                    {sec ? <h1>{sec.section.name}</h1> : ''}
+                  </div>
+                </Col>
+                <Col lg={{ order: 12, span: 4 }} xs={{ order: 1, span: 12 }}>
+                  {changesMade ? <div className="unsaved-changes">(ungespeicherte Änderungen)</div> : ''}
+                </Col>
               </Row>
               <ErrorBoundary>
                 <AnamneseForm

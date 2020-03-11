@@ -6,6 +6,8 @@ import CustomTable from '../../atoms/customTable/CustomTable';
 import TextButton from '../../atoms/buttons/textButton/TextButton';
 import { withRouter } from 'react-router-dom';
 import { getAllAnamneseData } from '../../../services/AnamneseService';
+import ErrorBoundary from '../../atoms/errorBoundary/ErrorBoundary';
+
 import './CustomerPage.css';
 
 const CustomerPage = (props) => {
@@ -13,22 +15,24 @@ const CustomerPage = (props) => {
   useEffect(() => {
     getAllAnamneseData().then(res => {
       let temp = [];
-      res.forEach((res,index) => {
-        temp[index] = {id:res.id, date:res.date_of_analysis}
+      res.forEach((res, index) => {
+        temp[index] = { id: res.id, date: res.date_of_analysis }
       });
       setAnamnesen(temp);
     }).catch(e => {
-      
+
     })
   }, [])
   return (
     <Container fluid>
       <Row>
         <Col md={4}>
-          <Section>
-            <CustomTable header={['#', 'Datum']} data={anamnesen} url='/anamnese' canClick />
-            <TextButton align='center' onClick={() => {props.history.push('/anamnese/new')}}>Neue Anamnese erfassen</TextButton>
-          </Section>
+          <ErrorBoundary>
+            <Section>
+              <CustomTable header={['#', 'Datum']} data={anamnesen} url='/anamnese' canClick />
+              <TextButton align='center' onClick={() => { props.history.push('/anamnese/new') }}>Neue Anamnese erfassen</TextButton>
+            </Section>
+          </ErrorBoundary>
         </Col>
       </Row>
     </Container>

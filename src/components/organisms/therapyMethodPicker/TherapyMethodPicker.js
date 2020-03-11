@@ -14,7 +14,7 @@ import { getSectionsRecommendations } from '../../../services/SectionService';
  * The component to select a therapymethod or create a new one
  */
 
-const TherapyMethodPicker = React.memo(({ 
+const TherapyMethodPicker = React.memo(({
   onSubmit,
   disabled,
   recommendations,
@@ -29,7 +29,7 @@ const TherapyMethodPicker = React.memo(({
   useEffect(() => {
       if (recommendations !== null) {
         getSectionsRecommendations(recommendations).then(res => {
-          setMethods(res.data)
+          setMethods(res)
         })
       }
     
@@ -61,9 +61,7 @@ const TherapyMethodPicker = React.memo(({
             enableReinitialize={true}
             // validationSchema={validationSchema}
             onSubmit={values => {
-              // setSubmitting(true);
               onSubmit(values);
-              // setSubmitting(false);
             }}
           >
             {({ handleSubmit,

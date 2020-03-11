@@ -8,14 +8,12 @@ import "./InputField.css"
  * Customizable Input Field that can be used in forms.
  */
 
-const InputField = ({
-  name, 
-  label, 
+const InputField = ({label, 
   ...props 
 }) => {
   const [field, meta] = useField(props);
   return (
-    <Form.Group name={name}>
+    <Form.Group name={props.name}>
       <Form.Label>{label}</Form.Label>
       <Form.Control
         className={"cornered"}
