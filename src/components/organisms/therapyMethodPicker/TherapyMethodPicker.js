@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
+import * as Yup from "yup";
 
 import Section from '../../atoms/section/Section';
 import TherapyMethod from '../../molecules/therapyMethod/TherapyMethod';
@@ -39,6 +40,11 @@ const TherapyMethodPicker = React.memo(({
     setSelectedMethod(therapy)
   }
 
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().max(38, 'Zeichen Limit erreicht (max. 38)'),
+    description: Yup.string().max(1000, 'Zeichen Limit erreicht (max. 1000)'),
+  })
+
   return (
     <Fragment>
       {therapy ? <TherapyMethod method={therapy} clickable={false} /> : ''}
@@ -59,7 +65,7 @@ const TherapyMethodPicker = React.memo(({
               description: '',
             }}
             enableReinitialize={true}
-            // validationSchema={validationSchema}
+            validationSchema={validationSchema}
             onSubmit={values => {
               onSubmit(values);
             }}

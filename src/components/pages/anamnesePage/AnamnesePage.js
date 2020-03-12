@@ -8,7 +8,7 @@ import ImageMapper from '../../molecules/imageMapper/ImageMapper';
 import AnamneseForm from '../../organisms/anamneseForm/AnamneseForm';
 import Section from '../../atoms/section/Section'
 
-import image from '../../../resources/image_for_mapper.jpg';
+import image from '../../../resources/image_for_mapper.png';
 import './AnamnesePage.css';
 import { getAnamneseData, setAnamneseData } from '../../../services/AnamneseService';
 import TherapyMethodPicker from '../../organisms/therapyMethodPicker/TherapyMethodPicker';
@@ -131,7 +131,7 @@ const AnamnesePage = React.memo((props) => {
   }
 
   return (
-    <Container fluid>
+    <Container fluid style={{marginBottom:'50px'}}>
       <Formik
         initialValues={
           {
@@ -248,7 +248,7 @@ const AnamnesePage = React.memo((props) => {
             <ErrorBoundary>
               <ImageMapper
                 width={600}
-                imgWidth={700}
+                imgWidth={890}
                 clicked={clickedArea}
                 image={image}
                 hasData={awd}

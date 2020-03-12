@@ -47,7 +47,6 @@ const ImageMapper = React.memo((props) => {
       color: props.color,
       transform: 'translate3d(-50%, -50%, 0)',
       pointerEvents: 'none',
-      zIndex: '1000',
       textAlign: 'center'
     },
     img: { zIndex: 1, userSelect: "none" }

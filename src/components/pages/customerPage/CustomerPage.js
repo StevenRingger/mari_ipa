@@ -7,10 +7,12 @@ import TextButton from '../../atoms/buttons/textButton/TextButton';
 import { withRouter } from 'react-router-dom';
 import { getAllAnamneseData } from '../../../services/AnamneseService';
 import ErrorBoundary from '../../atoms/errorBoundary/ErrorBoundary';
+import usePopUp from '../../atoms/popUpAlert/UsePopUp';
 
 import './CustomerPage.css';
 
 const CustomerPage = (props) => {
+  const popUp = usePopUp();
   const [anamnesen, setAnamnesen] = useState([])
   useEffect(() => {
     getAllAnamneseData().then(res => {
@@ -20,9 +22,13 @@ const CustomerPage = (props) => {
       });
       setAnamnesen(temp);
     }).catch(e => {
-
+      popUp.showMessage(
+        'Daten konnten nicht geladen werden',
+        'ct-alert',
+        'top-right'
+      );
     })
-  }, [])
+  }, [popUp])
   return (
     <Container fluid>
       <Row>
