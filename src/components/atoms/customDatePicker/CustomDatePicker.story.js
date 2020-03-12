@@ -13,7 +13,7 @@ export default {
 export const CustomDatePickers = () => (
   <Formik
     initialValues={{
-      birthday: ""
+      birthday: new Date('2020.02.17')
     }}
   >
     {props => {
@@ -22,16 +22,12 @@ export const CustomDatePickers = () => (
         setFieldValue
       } = props;
       return (
-        <Fragment>
-          <Container>
-            <CustomDatePicker
-              label={"Geburtstag"}
-              selected={values.birthday}
-              onChange={(e) => { setFieldValue("birthday", e) }}
-              dateFormat={"dd.MM.yyyy"}
-            />
-          </Container>
-        </Fragment>
+        <CustomDatePicker
+          label={"Geburtstag"}
+          selected={values.birthday}
+          onChange={(e) => { setFieldValue("birthday", e) }}
+          dateFormat={"dd.MM.yyyy"}
+        />
       )
     }}
   </Formik>

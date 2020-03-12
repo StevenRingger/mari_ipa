@@ -3,7 +3,7 @@ import { withA11y } from "@storybook/addon-a11y";
 import { Container, Row, Col } from 'react-bootstrap';
 
 import ImageMapper from './ImageMapper';
-import image from '../../../resources/image_for_mapper.jpg';
+import image from '../../../resources/image_for_mapper.png';
 
 export default {
   title: "molecules | ImageMapper",

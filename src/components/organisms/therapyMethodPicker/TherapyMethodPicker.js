@@ -70,10 +70,10 @@ const TherapyMethodPicker = React.memo(({
               onSubmit(values);
             }}
           >
-            {({ handleSubmit,
+            {({ 
+              handleSubmit,
               resetForm,
-              touched,
-              errors }) => {
+            }) => {
               return (
                 <Form method="post" onSubmit={handleSubmit} onChange={() => {
                   setSelectedMethod(null);

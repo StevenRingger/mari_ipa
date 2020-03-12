@@ -50,7 +50,7 @@ const AnamnesePage = React.memo((props) => {
         sections: []
       })
     }
-  }, [id, popUp]);
+  },[id]);
 
   const areasWithData = (data) => {
     let awd = [];

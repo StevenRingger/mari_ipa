@@ -11,7 +11,7 @@ import usePopUp from '../../atoms/popUpAlert/UsePopUp';
 
 import './CustomerPage.css';
 
-const CustomerPage = (props) => {
+const CustomerPage = React.memo((props) => {
   const popUp = usePopUp();
   const [anamnesen, setAnamnesen] = useState([])
   useEffect(() => {
@@ -27,8 +27,8 @@ const CustomerPage = (props) => {
         'ct-alert',
         'top-right'
       );
-    })
-  }, [popUp])
+    },[])
+  },[])
   return (
     <Container fluid>
       <Row>
@@ -43,5 +43,5 @@ const CustomerPage = (props) => {
       </Row>
     </Container>
   )
-}
+})
 export default withRouter(CustomerPage);
