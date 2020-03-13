@@ -11,14 +11,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  * The table get's generated automatically, only input needed is a header array and a body array
  */
 
-function CustomTable({ 
-  header, 
-  data, 
-  url, 
-  canClick, 
-  action, 
-  style, 
-  ...props 
+function CustomTable({
+  header,
+  data,
+  url,
+  canClick,
+  action,
+  style,
+  ...props
 }) {
   const settings = (id) => {
     return {
@@ -48,14 +48,14 @@ function CustomTable({
               {Object.keys(row).map((key, index) => {
                 return <td key={index}>
                   {row[key]}
-                  {Object.keys(row).length-1 === index && canClick ? 
-                    <div className="view-icon"><FontAwesomeIcon icon={["fas", "eye"]} size="sm" /></div>: ''}
-                  </td>
+                  {Object.keys(row).length - 1 === index && canClick ?
+                    <div className="view-icon"><FontAwesomeIcon icon={["fas", "eye"]} size="sm" /></div> : ''}
+                </td>
               })}
             </tr>
           })
         }
-        
+
       </tbody>
     </Table>
   )

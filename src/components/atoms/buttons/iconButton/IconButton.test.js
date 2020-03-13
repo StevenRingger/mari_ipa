@@ -15,9 +15,9 @@ describe('IconButton', () => {
 
     const div = document.createElement("div");
     ReactDOM.render(
-      <IconButton 
-        variant="primary" 
-        icon="pen" 
+      <IconButton
+        variant="primary"
+        icon="pen"
       />,
       div
     )

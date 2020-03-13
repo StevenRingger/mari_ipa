@@ -2,35 +2,44 @@
   background-color: var(--primary);
   color: black;
 }
+
 .ct-alert, .ct-alert .toast-header {
   background-color: var(--error);
   color: black;
 }
-.toast.close{
+
+.toast.close {
   float: right;
 }
-.toast{
+
+.toast {
   border-radius: 0;
 }
-.toast-header{
+
+.toast-header {
   display: block;
 }
-.toast-position{
+
+.toast-position {
   position: fixed;
 }
-.top-left{
+
+.top-left {
   top: 50px;
   left: 50px;
 }
-.top-right{
+
+.top-right {
   top: 50px;
   right: 50px;
 }
-.bottom-left{
+
+.bottom-left {
   bottom: 50px;
   left: 50px;
 }
-.bottom-right{
+
+.bottom-right {
   bottom: 50px;
   right: 50px;
 }

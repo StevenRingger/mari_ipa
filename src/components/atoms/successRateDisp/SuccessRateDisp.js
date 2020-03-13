@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
+import './SuccessRateDisp.css';
+
 /**
  * Displays element with the successrate and a colored background depending on how high it is.
  */
 
-const SuccessRateDisp = ({ 
-  successRate, 
-  ...props 
+const SuccessRateDisp = ({
+  successRate,
+  ...props
 }) => {
   const style = {
     general: {
-      width: '50px',
-      height: '50px',
+      width: '100%',
+      height: '100%',
       lineHeight: '50px',
       textAlign: 'center',
       float: 'right'
@@ -28,8 +30,9 @@ const SuccessRateDisp = ({
     }
   }
   return (
-    <div style={createStyle()}>
-      {Math.round(successRate * 100) + '%'}
+    <div style={createStyle()} className="success-rate">
+      <span></span>
+      <p>{Math.round(successRate * 100) + '%'}</p>
     </div>
   )
 }

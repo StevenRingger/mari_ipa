@@ -8,8 +8,8 @@ import "./InputField.css"
  * Customizable Input Field that can be used in forms.
  */
 
-const InputField = ({label, 
-  ...props 
+const InputField = ({ label,
+  ...props
 }) => {
   const [field, meta] = useField(props);
   return (

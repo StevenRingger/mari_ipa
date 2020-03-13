@@ -12,38 +12,38 @@ export default {
 };
 const map = {
   name: "example",
-  areas:  [
+  areas: [
     {
-      "id":"1",
+      "id": "1",
       "name": "punkt 1",
       "shape": "circle",
       "coords": [54, 55, 12]
     },
     {
-      "id":"2",
+      "id": "2",
       "name": "punkt 2",
       "shape": "circle",
       "coords": [52, 118, 12]
     },
     {
-      "id":"3",
+      "id": "3",
       "name": "punkt 3",
       "shape": "circle",
       "coords": [51, 175, 12]
     },
     {
-      "id":"4",
+      "id": "4",
       "name": "punkt 4",
       "shape": "circle",
       "coords": [50, 244, 12]
     },
     {
-      "id":"5",
+      "id": "5",
       "name": "punkt 5",
       "shape": "circle",
       "coords": [51, 334, 12]
     }
-]
+  ]
 }
 const setArea = (area) => {
   console.log(area)

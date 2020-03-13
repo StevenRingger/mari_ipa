@@ -9,16 +9,16 @@ import { interpolateColorsHsl } from "../../../services/ColorInterpolationServic
 /**
  * This is a component for a scale. It displays specific numbers as buttons that can be selected.
  */
-const ScalePicker = ({ 
-  text, 
-  scope, 
-  name, 
-  initialCheck, 
-  changeAction, 
-  color, 
-  colorLeft, 
-  colorRight, 
-  ...props 
+const ScalePicker = ({
+  text,
+  scope,
+  name,
+  initialCheck,
+  changeAction,
+  color,
+  colorLeft,
+  colorRight,
+  ...props
 }) => {
   const colors = (colorLeft && colorRight) ? interpolateColorsHsl(colorLeft, colorRight, scope.length) : interpolateColorsHsl(color, color, scope.length);
 

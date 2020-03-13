@@ -8,15 +8,15 @@ import './CustomToast.css';
  * Custom styled toast notification
  */
 
-const CustomToast = ({ 
-  open, 
-  handleClose, 
-  message, 
+const CustomToast = ({
+  open,
+  handleClose,
+  message,
   variant,
   position,
-  ...props}) => {
+  ...props }) => {
   return (
-    <Toast className={(position)? variant+ ' toast-position '+position: variant } {...props} onClose={() => handleClose()} show={open} autohide>
+    <Toast className={(position) ? variant + ' toast-position ' + position : variant} {...props} onClose={() => handleClose()} show={open} autohide>
       <Toast.Header>{message || ''}</Toast.Header>
     </Toast>
   )
@@ -32,15 +32,15 @@ CustomToast.propTypes = {
   /**
    * Is it displayed
    */
-  open: PropTypes.bool, 
+  open: PropTypes.bool,
   /**
    * Function to handle close event
    */
-  handleClose: PropTypes.func, 
+  handleClose: PropTypes.func,
   /**
    * Message to be displayed
    */
-  message: PropTypes.string, 
+  message: PropTypes.string,
   /**
    * Alert color
    */

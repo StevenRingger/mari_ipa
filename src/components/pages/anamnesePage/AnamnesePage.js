@@ -50,7 +50,7 @@ const AnamnesePage = React.memo((props) => {
         sections: []
       })
     }
-  },[id]);
+  }, [id]);
 
   const areasWithData = (data) => {
     let awd = [];
@@ -73,13 +73,15 @@ const AnamnesePage = React.memo((props) => {
 
   const updateData = (section) => {
     setSec(section)
-    let index = data.sections.findIndex(section => section.id === sec.id);
+    let index = data.sections.findIndex(s => s.id === section.section.id);
     if (index !== -1) {
       let d = data;
       d.sections[index] = section;
       setData(d);
     } else {
-      data.sections.push(section);
+      let d = data;
+      d.sections.push(section);
+      setData(d);
       areasWithData(data);
     }
     setChangesMade(true);
@@ -131,7 +133,7 @@ const AnamnesePage = React.memo((props) => {
   }
 
   return (
-    <Container fluid style={{marginBottom:'50px'}}>
+    <Container fluid style={{ marginBottom: '50px' }}>
       <Formik
         initialValues={
           {
@@ -169,13 +171,13 @@ const AnamnesePage = React.memo((props) => {
                 </Row>
               </Section>
               <CustomModal
-                title="this is title"
-                message="this is message"
+                title="Sie haben ungespeicherte Änderungen"
+                message="Wollen Sie die Seite wirklich verlassen?"
                 show={modal}
-                onHide={()=>setModal(false)}
-                primaryButtonAction={()=>setModal(false)}
+                onHide={() => setModal(false)}
+                primaryButtonAction={() => setModal(false)}
                 primaryButtonText="Bleiben"
-                secondaryButtonAction={ () => {props.history.push('/customer/' + data.user.id)}}
+                secondaryButtonAction={() => { props.history.push('/customer/' + data.user.id) }}
                 secondaryButtonText="Verlassen"
               />
               <ButtonGroup

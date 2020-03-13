@@ -13,30 +13,30 @@ describe('ScalePicker', () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <Formik
-      initialValues={{
-        painscale: '',
-        painscale2: '4',
-      }}
-      enableReinitialize={true}
-    >
-      {({ handleSubmit,
-        values,
-        errors }) => {
-        return (
-          <Form>
-            <ScalePicker
-              text="Hello World"
-              scope={['1', '2', '3', '4', '5', '6', '9', '12']}
-              name="painscale2"
-              changeAction={(e) => { console.log('The pressed button is: ' + e.target.value) }}
-              initialCheck={values.painscale2}
-              colorLeft={[134, 61, 33]}
-              colorRight={[1, 83, 46]}
-            />
-          </Form>
-        );
-      }}
-    </Formik>,
+        initialValues={{
+          painscale: '',
+          painscale2: '4',
+        }}
+        enableReinitialize={true}
+      >
+        {({ handleSubmit,
+          values,
+          errors }) => {
+          return (
+            <Form>
+              <ScalePicker
+                text="Hello World"
+                scope={['1', '2', '3', '4', '5', '6', '9', '12']}
+                name="painscale2"
+                changeAction={(e) => { console.log('The pressed button is: ' + e.target.value) }}
+                initialCheck={values.painscale2}
+                colorLeft={[134, 61, 33]}
+                colorRight={[1, 83, 46]}
+              />
+            </Form>
+          );
+        }}
+      </Formik>,
       div
     )
     expect(errorfn).not.toHaveBeenCalled();

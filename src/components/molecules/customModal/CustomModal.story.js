@@ -11,11 +11,11 @@ export default {
 };
 
 export const CustomModals = () => (
-  
+
   <Fragment>
     <Container style={{ padding: "20px" }}>
       <h1 style={{ color: "#FFFFFF" }}>CustomModal - default</h1>
-      <CustomModal 
+      <CustomModal
         show={true}
         animation={true}
         title={"Ungespeicherte Daten"}

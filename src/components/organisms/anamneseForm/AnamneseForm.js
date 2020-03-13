@@ -77,7 +77,7 @@ const AnamneseFrom = React.memo(({
                 name={"assessment"}
                 disabled={disabled}
               />
-              <TextButton type="submit" style={{width: '100%'}} disabled={(initialValues!==values)?false:true} align="center">Lokal Zwischen Speichern</TextButton>
+              <TextButton type="submit" style={{ width: '100%' }} disabled={(initialValues !== values) ? false : true} align="center">Lokal Zwischen Speichern</TextButton>
             </Form>
           );
         }}
@@ -89,7 +89,7 @@ export default AnamneseFrom;
 
 AnamneseFrom.defaultProps = {
   disabled: false,
-  setFirstSave: () => {}
+  setFirstSave: () => { }
 };
 
 AnamneseFrom.propTypes = {

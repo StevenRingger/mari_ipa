@@ -12,7 +12,7 @@ describe('Radio', () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <Formik>
-        <Radio name="radio-button" value="2" label="Im a radio Button" /> 
+        <Radio name="radio-button" value="2" label="Im a radio Button" />
       </Formik>,
       div
     )

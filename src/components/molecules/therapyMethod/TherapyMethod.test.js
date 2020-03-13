@@ -10,11 +10,11 @@ describe('TherapyMethod', () => {
 
     const div = document.createElement("div");
     ReactDOM.render(
-      <TherapyMethod style={{backgroundColor: 'white'}} method={{
-        "id":"35",
-        "name":"In consectetuer turpis ut velit",
-        "description":"Vestibulum ullamcorper mauris at ligula. Phasel  at ligula laoreet iaculis.",
-        "success_rate":0.64
+      <TherapyMethod style={{ backgroundColor: 'white' }} method={{
+        "id": "35",
+        "name": "In consectetuer turpis ut velit",
+        "description": "Vestibulum ullamcorper mauris at ligula. Phasel  at ligula laoreet iaculis.",
+        "success_rate": 0.64
       }} />,
       div
     )

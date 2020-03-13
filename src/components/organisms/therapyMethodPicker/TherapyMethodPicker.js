@@ -24,16 +24,16 @@ const TherapyMethodPicker = React.memo(({
   setOpen,
   setSelectedMethod,
   selectedMethod,
-  ...props 
+  ...props
 }) => {
   const [methods, setMethods] = useState([]);
   useEffect(() => {
-      if (recommendations !== null) {
-        getSectionsRecommendations(recommendations).then(res => {
-          setMethods(res)
-        })
-      }
-    
+    if (recommendations !== null) {
+      getSectionsRecommendations(recommendations).then(res => {
+        setMethods(res)
+      })
+    }
+
   }, [recommendations])
 
   const therapyClicked = (therapy) => {
@@ -47,7 +47,7 @@ const TherapyMethodPicker = React.memo(({
 
   return (
     <Fragment>
-      {therapy ? <TherapyMethod method={therapy} clickable={false} /> : ''}
+      {therapy ? <div style={{ marginLeft: '15px', marginRight: '15px' }}><TherapyMethod method={therapy} clickable={false} /></div> : ''}
       {(!open) ?
         <TextButton
           type="submit"
@@ -55,8 +55,8 @@ const TherapyMethodPicker = React.memo(({
           onClick={() => { setOpen(true); }}
           disabled={disabled}
         >
-          {therapy?'Therapiemethode ändern':'Therapiemethode Hinzufügen'}
-      </TextButton>
+          {therapy ? 'Therapiemethode ändern' : 'Therapiemethode Hinzufügen'}
+        </TextButton>
         :
         <Section>
           <Formik
@@ -70,7 +70,7 @@ const TherapyMethodPicker = React.memo(({
               onSubmit(values);
             }}
           >
-            {({ 
+            {({
               handleSubmit,
               resetForm,
             }) => {
@@ -112,7 +112,7 @@ export default TherapyMethodPicker;
 
 TherapyMethodPicker.defaultProps = {
   disabled: false,
-  setFirstSave: () => {}
+  setFirstSave: () => { }
 };
 
 TherapyMethodPicker.propTypes = {

@@ -15,7 +15,7 @@ export const CustomToasts = () => (
     <Container style={{ padding: "20px" }}>
       <h1 style={{ color: "#FFFFFF" }}>CustomToast - default</h1>
       <CustomToast message="test" />
-      <CustomToast message="test" variant="ct-alert"/>
+      <CustomToast message="test" variant="ct-alert" />
     </Container>
   </Fragment>
 );

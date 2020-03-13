@@ -1,0 +1,10 @@
+.success-rate span {
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.success-rate p {
+  vertical-align: middle;
+  display: inline-block;
+}

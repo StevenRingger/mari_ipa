@@ -27,8 +27,8 @@ const CustomerPage = React.memo((props) => {
         'ct-alert',
         'top-right'
       );
-    },[])
-  },[])
+    }, [])
+  }, [])
   return (
     <Container fluid>
       <Row>

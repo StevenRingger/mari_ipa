@@ -9,16 +9,17 @@ import './TherapyMethod.css';
  * A single therapymethod
  */
 
-const TherapyMethod = ({ 
-  method, 
-  clickable, 
-  selected, 
-  therapy, 
-  ...props 
+const TherapyMethod = ({
+  method,
+  clickable,
+  selected,
+  therapy,
+  ...props
 }) => {
+
   return (
     <div
-      className={(selected && selected.id === method.id) ? 'therapy-method selected' : 'therapy-method'}
+      className={selected && selected.id === method.id ? 'therapy-method selected' : 'therapy-method'}
       onClick={() => { therapy(method) }}
       style={props.style}
     >
@@ -44,15 +45,15 @@ TherapyMethod.propTypes = {
   /**
    * Object with id, name, description, success_rate
    */
-  method: PropTypes.object, 
+  method: PropTypes.object,
   /**
    * Is component clickable
    */
-  clickable: PropTypes.bool, 
+  clickable: PropTypes.bool,
   /**
    * Object of the selected method (id, name, description, success_rate)
    */
-  selected: PropTypes.object, 
+  selected: PropTypes.object,
   /**
    * Function for when therapymethod gets clicked
    */

@@ -18,6 +18,6 @@ export const SuccessRateDisps = () => (
       <SuccessRateDisp successRate={0.5} />
       <SuccessRateDisp successRate={0.31} />
     </Container>
-    
+
   </Fragment>
 );

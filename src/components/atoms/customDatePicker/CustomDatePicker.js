@@ -11,9 +11,9 @@ import "./CustomDatePicker.css";
  */
 
 const CustomDatePicker = ({
-  label, 
-  selected, 
-  onChange, 
+  label,
+  selected,
+  onChange,
   dateFormat,
   ...props
 }) => {

@@ -6,38 +6,39 @@ import ImageMapper from './ImageMapper';
 
 const map = {
   name: "example",
-  areas:  [
+  areas: [
     {
-      "id":"1",
+      "id": "1",
       "name": "punkt 1",
       "shape": "circle",
       "coords": [54, 55, 12]
     },
     {
-      "id":"2",
+      "id": "2",
       "name": "punkt 2",
       "shape": "circle",
       "coords": [52, 118, 12]
     },
     {
-      "id":"3",
+      "id": "3",
       "name": "punkt 3",
       "shape": "circle",
       "coords": [51, 175, 12]
     },
     {
-      "id":"4",
+      "id": "4",
       "name": "punkt 4",
       "shape": "circle",
       "coords": [50, 244, 12]
     },
     {
-      "id":"5",
+      "id": "5",
       "name": "punkt 5",
       "shape": "circle",
       "coords": [51, 334, 12]
     }
-]}
+  ]
+}
 const setArea = (area) => {
   console.log(area)
 }
@@ -50,16 +51,16 @@ describe('ImageMapper', () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <ImageMapper
-            width={600}
-            imgWidth={700}
-            clicked={setArea}
-            coordMap={map}
-            image={image}
-            hasData={["1", "4"]}
-            color="#fff"
-            background="rgba(0,0,0,0.7)"
-            hoverColor="rgba(255,255,255,1)"
-            hoverBackground="rgba(0,0,0,0.6)" />,
+        width={600}
+        imgWidth={700}
+        clicked={setArea}
+        coordMap={map}
+        image={image}
+        hasData={["1", "4"]}
+        color="#fff"
+        background="rgba(0,0,0,0.7)"
+        hoverColor="rgba(255,255,255,1)"
+        hoverBackground="rgba(0,0,0,0.6)" />,
       div
     )
     expect(errorfn).not.toHaveBeenCalled();

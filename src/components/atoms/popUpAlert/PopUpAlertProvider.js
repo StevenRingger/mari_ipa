@@ -10,7 +10,7 @@ class PopUpAlertProvider extends PureComponent {
     vertical: 'bottom',
     horizontal: 'left'
   }
-  
+
   showMessage = (message, variant, position) => {
     this.setState({ open: true, message, variant, position })
   }
@@ -24,7 +24,7 @@ class PopUpAlertProvider extends PureComponent {
     this.setState({ open: false, handleAction: null })
   }
 
-  render () {
+  render() {
     const {
       message,
       position,

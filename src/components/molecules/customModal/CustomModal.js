@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
+import { Modal, Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import TextButton from '../../atoms/buttons/textButton/TextButton';
@@ -10,15 +10,15 @@ import './CustomModal.css';
  */
 
 const CustomModal = ({
-  onHide, 
-  animation, 
-  show, 
-  title, 
-  message, 
-  secondaryButtonAction, 
-  secondaryButtonText, 
-  primaryButtonAction, 
-  primaryButtonText, 
+  onHide,
+  animation,
+  show,
+  title,
+  message,
+  secondaryButtonAction,
+  secondaryButtonText,
+  primaryButtonAction,
+  primaryButtonText,
   ...props
 }) => {
   return (
@@ -28,12 +28,20 @@ const CustomModal = ({
       </Modal.Header>
       <Modal.Body>{message}</Modal.Body>
       <Modal.Footer>
-        <TextButton variant="secondary" onClick={secondaryButtonAction}>
-          {secondaryButtonText}
-        </TextButton>
-        <TextButton variant="primary" onClick={primaryButtonAction}>
-          {primaryButtonText}
-        </TextButton>
+        <Row style={{ width: '100%' }}>
+          <Col>
+            <TextButton variant="secondary" onClick={secondaryButtonAction} >
+              {secondaryButtonText}
+            </TextButton>
+          </Col>
+          <Col>
+            <TextButton variant="primary" align="right" onClick={primaryButtonAction} >
+              {primaryButtonText}
+            </TextButton>
+          </Col>
+        </Row>
+
+
       </Modal.Footer>
     </Modal>
   )
@@ -53,35 +61,35 @@ CustomModal.propTypes = {
   /**
    * What shoud happen when get closed
    */
-  onHide: PropTypes.func, 
+  onHide: PropTypes.func,
   /**
    * Should the component be animated
    */
-  animation: PropTypes.bool, 
+  animation: PropTypes.bool,
   /**
    * Is the component visible
    */
-  show: PropTypes.bool, 
+  show: PropTypes.bool,
   /**
    * Title of the modal
    */
-  title: PropTypes.string, 
+  title: PropTypes.string,
   /**
    * Message to display in modal
    */
-  message: PropTypes.string, 
+  message: PropTypes.string,
   /**
    * Function for onClick of the secondary button
    */
-  secondaryButtonAction: PropTypes.func, 
+  secondaryButtonAction: PropTypes.func,
   /**
    * Text for the secondary button
    */
-  secondaryButtonText: PropTypes.string, 
+  secondaryButtonText: PropTypes.string,
   /**
    * Function for onClick of the primary button
    */
-  primaryButtonAction: PropTypes.func, 
+  primaryButtonAction: PropTypes.func,
   /**
    * Text for the primary button
    */
