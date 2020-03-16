@@ -50,6 +50,7 @@ const AnamnesePage = React.memo((props) => {
         sections: []
       })
     }
+    // eslint-disable-next-line
   }, [id]);
 
   const areasWithData = (data) => {

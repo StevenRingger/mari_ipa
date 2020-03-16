@@ -21,6 +21,6 @@ describe('TherapyMethod', () => {
     expect(errorfn).not.toHaveBeenCalled();
     console.error = consoleError;
 
-    expect(div.innerHTML).toBe('<div class="therapy-method" style="background-color: white;"><div class="row"><div class="col-10"><h4>In consectetuer turpis ut velit</h4><p>Vestibulum ullamcorper mauris at ligula. Phasel  at ligula laoreet iaculis.</p></div><div class="col-2"><div style="width: 50px; height: 50px; line-height: 50px; text-align: center; float: right;">64%</div></div></div></div>')
+    expect(div.innerHTML).toBe('<div class="therapy-method" style="background-color: white;"><div class="row"><div class="col-10"><h4>In consectetuer turpis ut velit</h4><p>Vestibulum ullamcorper mauris at ligula. Phasel  at ligula laoreet iaculis.</p></div><div class="col-2"><div style="width: 100%; height: 100%; line-height: 50px; text-align: center; float: right;" class="success-rate"><span></span><p>64%</p></div></div></div></div>')
   })
 })

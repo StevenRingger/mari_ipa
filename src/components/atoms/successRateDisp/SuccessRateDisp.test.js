@@ -16,6 +16,6 @@ describe('SuccessRateDisp', () => {
     expect(errorfn).not.toHaveBeenCalled();
     console.error = consoleError;
 
-    expect(div.innerHTML).toBe('<div style="width: 50px; height: 50px; line-height: 50px; text-align: center; float: right;">98%</div>')
+    expect(div.innerHTML).toBe('<div style="width: 100%; height: 100%; line-height: 50px; text-align: center; float: right;" class="success-rate"><span></span><p>98%</p></div>')
   })
 })

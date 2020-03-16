@@ -111,7 +111,7 @@ context("Anamnsese Page of existing anamnese", () => {
       expect(cy.get('div[name="name"] > .invalid-feedback').should("have.text", "Zeichen Limit erreicht (max. 38)"))
       cy.get('div[name="name"] > .invalid-feedback').should('be.visible')
     })
-    
+
     it('Beschreibung more than 1000 characters', () => {
       cy.get('[alt="1"]').click({ force: true })
       cy.get(':nth-child(2) > .btn-container > .btn').click()

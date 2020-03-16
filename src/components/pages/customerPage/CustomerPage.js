@@ -28,6 +28,7 @@ const CustomerPage = React.memo((props) => {
         'top-right'
       );
     }, [])
+    // eslint-disable-next-line
   }, [])
   return (
     <Container fluid>

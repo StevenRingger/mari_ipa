@@ -3,9 +3,9 @@ import api from '../config/Api';
 export const setAnamneseData = (data) => {
   return new Promise((resolve, reject) => {
     let promise;
-    if(typeof data.id === 'undefined'){
+    if (typeof data.id === 'undefined') {
       promise = api.post(`/anamnese/`, data);
-    }else{
+    } else {
       promise = api.post(`/anamnese/${data.id}`, data);
     }
     promise.then(response => {
